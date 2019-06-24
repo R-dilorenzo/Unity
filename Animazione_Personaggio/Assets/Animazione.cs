@@ -45,9 +45,10 @@ public class Animazione : MonoBehaviour
         }
         anim.SetBool("run", run);
         /*----*/
+        //Per il movimento
         /*----*/
-        float movex = inputH * 20f * Time.deltaTime;
-        float movez = inputV * 50f * Time.deltaTime;
+        float movex = inputH * 1.20f * Time.deltaTime;
+        float movez = inputV * 1.50f * Time.deltaTime;
         if (movez <= 0f)
         {
             movex = 0f;
@@ -56,7 +57,10 @@ public class Animazione : MonoBehaviour
             movex *= 3f;
             movez *= 3f;
         }
+
         rb.velocity = new Vector3(movex, 0f, movez);
+        
+        transform.Translate(rb.velocity);  //modifica traslando la posizione del gameobject
         /*----*/
         /*
         if (Input.GetKey(KeyCode.Space)) {
